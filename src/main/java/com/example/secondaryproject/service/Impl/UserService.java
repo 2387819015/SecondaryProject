@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.secondaryproject.mapper.UserMapper;
 import com.example.secondaryproject.pojo.user;
 import com.example.secondaryproject.service.IUserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
