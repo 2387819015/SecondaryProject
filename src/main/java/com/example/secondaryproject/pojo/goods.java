@@ -16,4 +16,5 @@ public class goods {
     private String price;
     private Integer num;
     private String title;//商品在商城中的标题
+    private Integer saleNum;
 }
