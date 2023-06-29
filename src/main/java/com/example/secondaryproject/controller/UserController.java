@@ -5,15 +5,12 @@ import com.example.secondaryproject.vo.result;
 import io.leopard.web.servlet.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.secondaryproject.pojo.user;
 import com.example.secondaryproject.util.BeanUtil;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -39,7 +36,7 @@ public class UserController {
             //账号不存在，抛出异常
         }
         String encode = user.getAccountNumber()+"|"+user.getPassword();
-        CookieUtil.setCookie("Login",encode,3600,request,response);
+        CookieUtil.setCookie("token",encode,3600,request,response);
 
         try {
             redisTemplate.opsForHash().putAll(encode, BeanUtil.beanMap(user));
@@ -52,4 +49,17 @@ public class UserController {
         return result;
     }
 
+    public result token(@CookieValue("token") String token,HttpServletRequest request,HttpServletResponse response) throws Exception{
+        Map map = redisTemplate.opsForHash().entries(token);
+        if (map.isEmpty()) {
+            CookieUtil.deleteCookie(token,request,response);
+            result.fail("002", "账号过期,请重新登录");
+            return result;
+        }
+        redisTemplate.expire(token, 60 * 60, TimeUnit.SECONDS); // 设置过期时间
+        user user = BeanUtil.mapBean(map, user.class);
+        user.setPassword(null);
+        result.success("001", user);
+        return result;
+    }
 }

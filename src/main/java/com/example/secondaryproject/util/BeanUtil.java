@@ -19,4 +19,16 @@ public class BeanUtil {
         return map;
     }
 
+    public static <T> T mapBean(Map<String, Object> map,Class<T> classType) throws Exception {
+        T obj = classType.newInstance();
+        BeanInfo beanInfo = Introspector.getBeanInfo(classType,Object.class);
+        PropertyDescriptor[] list = beanInfo.getPropertyDescriptors();
+        for (PropertyDescriptor pd : list) {
+            String key = pd.getName();
+            Object value=map.get(key);
+            pd.getWriteMethod().invoke(obj, value);
+        }
+        return obj;
+    }
+
 }
