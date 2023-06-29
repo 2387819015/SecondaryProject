@@ -3,6 +3,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.secondaryproject.mapper.PictureMapper">
     <select id="selectPicByGoodsId" parameterType="Integer" resultType="com.example.secondaryproject.pojo.picture">
-        SELECT count(*) from user_table where account_number = #{accountNumber} and password = #{password}
+        SELECT * from pic_table where goods_id = #{goodsId}
     </select>
 </mapper>

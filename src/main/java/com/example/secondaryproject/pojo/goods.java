@@ -15,4 +15,5 @@ public class goods {
     private String face;//显示在商城里的图片
     private String price;
     private Integer num;
+    private String title;//商品在商城中的标题
 }
