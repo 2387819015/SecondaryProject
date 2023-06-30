@@ -1,6 +1,8 @@
 package com.example.secondaryproject.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.secondaryproject.exception.ExceptionEnum;
+import com.example.secondaryproject.exception.XmException;
 import com.example.secondaryproject.mapper.CartMapper;
 import com.example.secondaryproject.mapper.GoodsMapper;
 import com.example.secondaryproject.pojo.cart;
@@ -25,6 +27,9 @@ public class CartService extends ServiceImpl<CartMapper, cart> implements ICartS
         List<cartVo> cartVoList = new ArrayList<>();
         List<cart> cartList = new ArrayList<>();
         cartList = cartMapper.selectCartByUserId(userId);
+        if(cartList == null){
+            throw new XmException(ExceptionEnum.GET_CART_ERROR);
+        }
         for(cart cart:cartList){
             cartVo cartVo = new cartVo();
             BeanUtils.copyProperties(cart,cartVo);
@@ -52,7 +57,6 @@ public class CartService extends ServiceImpl<CartMapper, cart> implements ICartS
         cart cart = new cart();
         BeanUtils.copyProperties(cartVo,cart);
         cart.setUserId(userId);
-
         cartMapper.deleteCart(cart.getGoodsId(),cart.getGoodsNum(),cart.getUserId());
     }
 }

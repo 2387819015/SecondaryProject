@@ -1,6 +1,8 @@
 package com.example.secondaryproject.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.secondaryproject.exception.ExceptionEnum;
+import com.example.secondaryproject.exception.XmException;
 import com.example.secondaryproject.mapper.CartMapper;
 import com.example.secondaryproject.mapper.GoodsMapper;
 import com.example.secondaryproject.mapper.OrderMapper;
@@ -39,19 +41,33 @@ public class OrderService extends ServiceImpl<OrderMapper, order> implements IOr
             order.setUserId(userId);
             order.setUserName(userMapper.selectById(userId).getNickName());
             System.out.println(order.toString());
-            orderMapper.insert(order);
+            try {
+                orderMapper.insert(order);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new XmException(ExceptionEnum.ADD_ORDER_ERROR);
+            }
             goods goods = goodsMapper.selectById(order.getGoodsId());
             goods.setNum(goods.getNum()-order.getGoodsNum());
             goods.setSaleNum(goods.getSaleNum()+order.getGoodsNum());
             goodsMapper.updateById(goods);
         }
-        cartMapper.deleteByUserId(userId);
+
+        try {
+            cartMapper.deleteByUserId(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new XmException(ExceptionEnum.ADD_ORDER_ERROR);
+        }
     }
 
     public List<orderVo> getOrder(int userId){
         List<orderVo> orderVoList = new ArrayList<>();
         List<order> orderList = new ArrayList<>();
         orderList = orderMapper.selectOrderByUserId(userId);
+        if(orderList == null){
+            throw new XmException(ExceptionEnum.GET_ORDER_NOT_FOUND);
+        }
         for(order order:orderList){
             orderVo orderVo = new orderVo();
             orderVo.setGoodsName(order.getGoodsName());

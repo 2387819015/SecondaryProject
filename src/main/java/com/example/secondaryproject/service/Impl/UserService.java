@@ -1,6 +1,8 @@
 package com.example.secondaryproject.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.secondaryproject.exception.ExceptionEnum;
+import com.example.secondaryproject.exception.XmException;
 import com.example.secondaryproject.mapper.UserMapper;
 import com.example.secondaryproject.pojo.user;
 import com.example.secondaryproject.service.IUserService;
@@ -14,7 +16,7 @@ public class UserService extends ServiceImpl<UserMapper, user> implements IUserS
     public void register(user user){
         //用户注册
         if(userMapper.selectByAccountNumber(user.getAccountNumber())!= 0){
-            //抛出异常
+            throw new XmException(ExceptionEnum.SAVE_USER_REUSE);
         }
         userMapper.insert(user);
     }
@@ -24,7 +26,7 @@ public class UserService extends ServiceImpl<UserMapper, user> implements IUserS
             return true;
         }
         else{
-            return false;
+            throw new XmException(ExceptionEnum.GET_USER_NOT_FOUND);
         }
     }
 }

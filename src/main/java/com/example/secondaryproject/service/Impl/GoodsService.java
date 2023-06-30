@@ -1,6 +1,8 @@
 package com.example.secondaryproject.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.secondaryproject.exception.ExceptionEnum;
+import com.example.secondaryproject.exception.XmException;
 import com.example.secondaryproject.mapper.GoodsMapper;
 import com.example.secondaryproject.pojo.goods;
 import com.example.secondaryproject.service.IGoodsService;
@@ -17,6 +19,9 @@ public class GoodsService extends ServiceImpl<GoodsMapper, goods> implements IGo
     public List<goods> selectGoodsByName(String goodsName){
         List<goods> lg = new ArrayList<>();
         lg = goodsMapper.selectGoodsByName(goodsName);
+        if(lg == null){
+            throw new XmException(ExceptionEnum.GET_PRODUCT_NOT_FOUND);
+        }
         return lg;
     }
 }
