@@ -13,6 +13,7 @@ import com.example.secondaryproject.vo.orderVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -29,7 +30,7 @@ public class OrderService extends ServiceImpl<OrderMapper, order> implements IOr
     @Autowired
     private GoodsMapper goodsMapper;
 
-
+    @Transactional
     public void addOrder(List<cartVo> cartvoList, int userId){
         long time = new Date().getTime();
         for(cartVo cartVo:cartvoList){

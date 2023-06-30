@@ -11,4 +11,5 @@ import java.util.List;
 public interface CartMapper extends BaseMapper<cart> {
     void deleteByUserId(@Param("userId") Integer userId);
     List<cart> selectCartByUserId(@Param("userId") Integer userId);
+    void deleteCart(@Param("goodsId") Integer goodsId,@Param("goodsNum") Integer goodsNum,@Param("userId") Integer userId);
 }

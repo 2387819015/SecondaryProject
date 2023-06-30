@@ -8,4 +8,7 @@ import java.util.List;
 
 public interface ICartService extends IService<cart> {
     List<cartVo> selectCartByUserId(int userId);
+    cartVo addCart(cart cart);
+
+    void deleteCart(cartVo cartVo,int userId);
 }

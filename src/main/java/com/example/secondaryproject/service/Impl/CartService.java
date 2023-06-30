@@ -28,12 +28,31 @@ public class CartService extends ServiceImpl<CartMapper, cart> implements ICartS
         for(cart cart:cartList){
             cartVo cartVo = new cartVo();
             BeanUtils.copyProperties(cart,cartVo);
-            goods good = goodsMapper.selectById(cart.getGoodsId());
-            cartVo.setGoodsName(good.getGoodName());
-            cartVo.setTotalPrice(cartVo.getGoodsNum()*good.getPrice());
-            cartVo.setGoodsPic(good.getFace());
+            goods goods = goodsMapper.selectById(cart.getGoodsId());
+            cartVo.setGoodsName(goods.getGoodName());
+            cartVo.setTotalPrice(cartVo.getGoodsNum()*goods.getPrice());
+            cartVo.setGoodsPic(goods.getFace());
             cartVoList.add(cartVo);
         }
         return cartVoList;
+    }
+
+    public cartVo addCart(cart cart){
+        cartMapper.insert(cart);
+        cartVo cartVo = new cartVo();
+        BeanUtils.copyProperties(cart,cartVo);
+        goods goods = goodsMapper.selectById(cart.getGoodsId());
+        cartVo.setGoodsName(goods.getGoodName());
+        cartVo.setTotalPrice(cartVo.getGoodsNum()*goods.getPrice());
+        cartVo.setGoodsPic(goods.getFace());
+        return  cartVo;
+    }
+
+    public void deleteCart(cartVo cartVo,int userId){
+        cart cart = new cart();
+        BeanUtils.copyProperties(cartVo,cart);
+        cart.setUserId(userId);
+
+        cartMapper.deleteCart(cart.getGoodsId(),cart.getGoodsNum(),cart.getUserId());
     }
 }
