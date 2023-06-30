@@ -1,6 +1,7 @@
 package com.example.secondaryproject.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.secondaryproject.mapper.CartMapper;
 import com.example.secondaryproject.mapper.GoodsMapper;
 import com.example.secondaryproject.mapper.OrderMapper;
 import com.example.secondaryproject.mapper.UserMapper;
@@ -22,21 +23,25 @@ public class OrderService extends ServiceImpl<OrderMapper, order> implements IOr
     @Autowired
     private UserMapper userMapper;
     @Autowired
+    private CartMapper cartMapper;
+    @Autowired
     private GoodsMapper goodsMapper;
+
 
     public void addOrder(List<cartVo> cartvoList, int userId){
         long time = new Date().getTime();
         for(cartVo cartVo:cartvoList){
             order order = new order();
             BeanUtils.copyProperties(cartVo,order);
-            order.setId(userId);
-            order.setOrderTime(time);
+            order.setUserId(userId);
             order.setUserName(userMapper.selectById(userId).getNickName());
+            System.out.println(order.toString());
             orderMapper.insert(order);
             goods goods = goodsMapper.selectById(order.getGoodsId());
             goods.setNum(goods.getNum()-order.getGoodsNum());
             goods.setSaleNum(goods.getSaleNum()+order.getGoodsNum());
             goodsMapper.updateById(goods);
         }
+        cartMapper.deleteByUserId(userId);
     }
 }
