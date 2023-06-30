@@ -48,7 +48,7 @@ public class UserController {
         result.success("001", "登录成功", user);
         return result;
     }
-
+    @GetMapping("token")
     public result token(@CookieValue("token") String token,HttpServletRequest request,HttpServletResponse response) throws Exception{
         Map map = redisTemplate.opsForHash().entries(token);
         if (map.isEmpty()) {

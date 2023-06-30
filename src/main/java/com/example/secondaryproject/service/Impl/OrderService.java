@@ -9,10 +9,12 @@ import com.example.secondaryproject.pojo.goods;
 import com.example.secondaryproject.pojo.order;
 import com.example.secondaryproject.service.IOrderService;
 import com.example.secondaryproject.vo.cartVo;
+import com.example.secondaryproject.vo.orderVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,5 +45,18 @@ public class OrderService extends ServiceImpl<OrderMapper, order> implements IOr
             goodsMapper.updateById(goods);
         }
         cartMapper.deleteByUserId(userId);
+    }
+
+    public List<orderVo> getOrder(int userId){
+        List<orderVo> orderVoList = new ArrayList<>();
+        List<order> orderList = new ArrayList<>();
+        orderList = orderMapper.selectOrderByUserId(userId);
+        for(order order:orderList){
+            orderVo orderVo = new orderVo();
+            orderVo.setGoodsName(order.getGoodsName());
+            orderVo.setGoodsPic(goodsMapper.selectOneByName(order.getGoodsName()).getFace());
+            orderVoList.add(orderVo);
+        }
+        return orderVoList;
     }
 }

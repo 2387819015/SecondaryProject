@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface GoodsMapper extends BaseMapper<goods> {
     List<goods> selectGoodsByName(@Param("goodsName") String goodsName);
+
+    goods selectOneByName(@Param("goodsName") String goodsName);
 }
