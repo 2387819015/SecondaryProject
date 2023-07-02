@@ -15,7 +15,6 @@ public class PictureController {
     private PictureService pictureService;
     @Autowired
     private result result;
-
     @PostMapping("/goods/{goodsId}")
     public result goodsPicture(@PathVariable Integer goodsId){
         List<picture> goodsPicture = pictureService.getGoodsPictureByGoodsId(goodsId);
