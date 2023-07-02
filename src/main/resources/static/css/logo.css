@@ -1,0 +1,11 @@
+.logohead{
+    margin-left: 100px;
+    padding-top:100px;
+    float: left;
+}
+.logohead img{
+    width: 150px;
+}
+.logohead img{
+    border-radius: 10% 10%;
+}

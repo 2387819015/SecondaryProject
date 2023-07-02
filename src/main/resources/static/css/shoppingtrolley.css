@@ -1,0 +1,90 @@
+.background{
+    width: 100%;
+    text-align: center;
+    background-color: white;
+}
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+}
+.header{
+    margin-top: 70px;
+    width: 70%;
+    background-color: pink;
+    height: 200px;
+}
+.goodscount{
+    text-align: left;
+    height: 250px;
+    background-color: whitesmoke;
+}
+.goodscount p{
+    background-color: white;
+    border: grey 1px solid;
+    padding-left: 30px;
+    line-height: 100px;
+    display: block;
+    height: 100px;
+}
+
+.goods_detail{
+    margin-top: 10px;
+    display: flex;
+    height: 100px;
+    align-items: center;
+}
+.goodsdeleft{
+    justify-content: space-around;
+    float: left;
+    width: 20%;
+}
+.goodderight{
+    justify-content: space-around;
+    float: right;
+    width: 40%;
+}
+.goodderight div{
+    width: 40px;
+    text-align: center;
+}
+.goods_display{
+    background-color: red;
+    height: 300px;
+}
+.commodity_display{
+    box-sizing: border-box;
+    display: flex;
+    padding-left: 20px;
+    align-items: center;
+    height: 200px;
+    background-color: pink;
+}
+.commodity_img{
+    width: 100px;
+    height: 100px;
+}
+.commodity_img img{
+    width: 100%;
+    height: 100%;
+}
+.commodity_description{
+    width: 100px;
+    height: 50px;
+    margin-left:40px;
+    text-align: left;
+}
+.price{
+    margin-left: 45%;
+    width: 100px;
+}
+.count{
+    display: inline-block;
+    margin-left: 180px;
+    width: 50px;
+}
+.sum{
+    margin-left: 100px;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+}

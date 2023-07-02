@@ -1,0 +1,472 @@
+body{
+    background-color: #f4f4f4;
+}
+li{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+clearfix::after{
+    display: block;
+    content: '';
+    clear: both;
+}
+.headersize{
+    position: relative;
+    background-color: #ffffff;
+    width: auto;
+    margin:10px auto;
+    height: 150px;
+    z-index: 0;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 1560px;
+}
+.header{
+    position: relative;
+    z-index: 0;
+    height: 100px;
+    background-color:#ffffff;
+    width: auto;
+    margin-top: 20px;
+}
+.logo{
+    margin-left: 100px;
+    float: left;
+}
+.logo img{
+    border-radius: 10% 10%;
+}
+.nav{
+    float: left;
+    margin-left: 70px;
+}
+.nav li{
+    float: left;
+    margin-right: 25px;
+    margin-top: 15px;
+    transition: background-color 0.5s;
+}
+.nav li a{
+    display: inline-block;
+    padding: 20px 15px;
+    text-align: center;
+
+
+}
+.nav li:hover{
+    border-bottom: orange solid 2px;
+    background-color: whitesmoke;
+}
+.search{
+    position: relative;
+    width: 800px;
+    height: 60px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 50px;
+    background-color: white;
+
+
+}
+.search input{
+    float: left;
+    width: 500px;
+    height: 58px;
+    padding-left: 40px;
+    border: red 1px solid;
+    vertical-align: middle;
+    transition: all 1s;
+}
+.search input:focus{
+    width: 700px;
+}
+.search input::placeholder{
+    color: pink;
+    font-size: 20px;
+}
+
+
+.shopping_trolley{
+    float: left;
+    margin-top: 30px;
+    margin-left: 100px;
+    width: 200px;
+    height: 60px;
+    border: 1px whitesmoke solid ;
+    box-shadow: black 0 0 5px 1px;
+    transition: all 0.5s;
+}
+
+.shopping_trolley a{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+    font-size: 20px;
+    color:black;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+.shopping_trolley a:hover{
+    color: #e1251b;
+}
+.shopping_trolley:hover{
+    width: 210px;
+    height: 65px;
+}
+.news{
+    margin-top: 100px;
+}
+.news li{
+    border-bottom: 2px solid whitesmoke;
+    padding-left: 20px;
+    margin-right: 50px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+.news li a{
+    font-size: 20px;
+    text-decoration: underline;
+}
+.banner{
+    height: 680px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.sortlist{
+    float: left;
+    margin-right:20px ;
+    width: 250px;
+    height: 680px;
+    background-color: white;
+}
+.sortlist ul{
+    margin-top: 20px;
+    width: 250px;
+    height: 40px;
+
+}
+.sortlist li{
+    margin-left: 10px;
+    transition: background-color,width,height 0.3s;
+}
+.sortlist li a{
+    padding: 4px;
+    display: block;
+    font-weight: lighter;
+    font-size: 20px;
+    width: 250px;
+    height: 28px;
+    line-height: 25px;
+    color: black;
+    transition: color 0.3s;
+}
+.sortlist li a::after{
+    text-align: right;
+    content: '>';
+    color: black;
+}
+
+.sortlist li:hover{
+    background-color: whitesmoke;
+    height: 38px;
+    width: 260px;
+}
+.sortlist li a:hover{
+    color: #e1251b;
+}
+.goodsscroll{
+    display: flex;
+    align-items: center;
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    width: 600px;
+    height: 680px;
+    background-color: white;
+
+}
+.goodsscroll a{
+    width: 100%;
+    height: 100%;
+}
+.goodsscroll a img{
+    width: 100%;
+    height: 100%;
+}
+.goodsscroll button{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0.35;
+    background-color: black;
+    border-radius: 0% 50%  50% 0;
+}
+.goodsscroll button:first-child{
+    left: 0;
+}
+.goodsscroll button:last-child{
+    position: absolute;
+    right: 0;
+    border-radius: 50% 0 0 50%;
+
+}
+.advertisment{
+    float: left;
+    width: 300px;
+    height: 680px;
+    margin-right: 20px;
+    background-color: white;
+}
+.advertisment ul li{
+    height: 220px;
+    margin-bottom: 10px;
+    background-color: pink;
+}
+.advertisment li:nth-child(3){
+    margin-bottom: 0;
+}
+.advertisment img{
+    width: 100%;
+    height: 220px;
+}
+.register{
+    float: left;
+    text-align: center;
+    width: 350px;
+    height: 680px;
+    background-color: white;
+}
+.greeting{
+    width: auto;
+    height: 200px;
+}
+.register .log{
+    margin-top: 100px;
+    height: 40px;
+    text-align: center;
+}
+.register .log a:first-child{
+
+    margin-right: 50px;
+}
+.register a{
+    font-size: 30px;
+    transition: color 0.3s;
+}
+.register a:hover{
+    color: red;
+}
+
+.midpagetitle{
+    margin: 50px auto;
+}
+.midpagetitle h1{
+    font-size: 50px;
+    text-align: center;
+}
+.square{
+    height: 1200px;
+    overflow: hidden;
+
+}
+.item{
+    width: 380px;
+    float: left;
+    margin-right: 10px;
+}
+
+.minitem{
+    margin-bottom: 10px;
+    height: 290px;
+    background-color: white;
+
+}
+.largeitem{
+    height: 590px;
+    background-color: white;
+}
+.rightscorll{
+    position: fixed;
+    right: 50px;
+    top: 200px;
+}
+.rightscorll{
+    width: 90px;
+    height: auto;
+    background-color: white;
+}
+
+.rightscorll li a{
+    display: block;
+    height: 90px;
+    padding: 3px;
+    line-height: 90px;
+    text-align: center;
+    font-weight:bold ;
+    font-size: 20px;
+    color: black;
+    border-bottom: whitesmoke 1px solid;
+    transition: color 0.5s;
+
+}
+.rightscorll li{
+    transition: background-color 0.5s;
+}
+.rightscorll li a:hover{
+    color: white;
+}
+.rightscorll li:hover{
+    background-color: red;
+}
+.headerscroll{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 150px;
+    z-index: 0;
+}
+.search button:hover{
+    background-color: darkred;
+}
+
+/*商品推荐中的商品展示格子*/
+.goods_display{
+    height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.goods_display li{
+    float: left;
+    width: 303px;
+    height: 390px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    overflow: hidden;
+}
+.goods_display li a{
+    display: inline-block;
+    height: 330px;
+    border-bottom: 1px solid gray;
+
+}
+.goods_display li:nth-child(5n+1){
+    margin-left: 0;
+}
+.goods_display li:nth-child(5-n){
+}
+.goods_details{
+    background-color: pink;
+    height: 60px;
+}
+.changegoods{
+
+}
+.sitebottom{
+    margin-top: 100px;
+    height: 200px;
+    background-color: #434343;
+    position: relative;
+    box-shadow: 0 3px 5px 2px grey;
+}
+
+.legal{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,10%);
+}
+.legal ul li{
+    padding: 0 10px;
+    float: left;
+    border-left: grey 1px solid;
+}
+.legal li:first-child{
+    border :none;
+}
+.legal li a{
+    color: #f4f4f4;
+    font-size: 20px;
+}
+.space{
+    height: 200px;
+    background-color: #fff;
+}
+.changegoods{
+    position: relative;
+    height: 100px;
+    z-index: 1;
+}
+.changegoods button{
+    position: absolute;
+    right: 50%;
+    transform: translate(50%,0);
+    border: #434343 2px solid;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 30px;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+.changegoods button:hover{
+    background-color: #434343;
+}
+.scode{
+    float: right;
+    width: 250px;
+    margin-right: 50px;
+    height: 200px;
+}
+.scode_p{
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+    border: whitesmoke 1px solid;
+
+}
+.scode img{
+    width: 30%;
+    height: 40%;
+    display: none;
+    margin: 5px auto;
+    transition: display 1s;
+
+}
+.scode:hover img{
+    display: block;
+    box-shadow: gray 0px 0px 10px 10px;
+
+}
+
+.hotrecommend{
+    height: 400px;
+    display: none;
+    position: absolute;
+    width:740px;
+    border:pink 3px solid;
+    top:60px;
+    background-color: pink;
+    transition: all 0.5s;
+}
+.hotrecommend li{
+    height: 50px;
+    color: pink;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <a href="#">
+                <img src="./images/logo.png" alt="">
+            </a>
+        </h1>
+        <div class="zhuc">
+            <div>已有账号?</div>
+            <a href="2.html">请登录></a>
+        </div>
+    </div>
+
+    <div class="neirong">
+        <h1>欢迎注册拼夕夕</h1>
+    <hr>
+    <form action="">
+        <div class="kongqi"></div>
+        昵称: 
+        <input type="text" placeholder="请输入昵称" id="nicheng">
+        <br>
+        <br>
+        密码:
+        <input type="text" placeholder="请输入密码" id="mima">
+        <br>
+        <br>
+        确认密码:
+        <input type="text" placeholder="请再次输入密码" id="queren">
+        <br>
+        <br>
+        性别：
+        <label ><input type="radio" name="sex" checked>男</label>
+        <label ><input type="radio" name="sex">女</label>
+        <br>
+        <br>
+        <label><input type="checkbox"checked>我同意所有条款</label>
+        <br>
+        <br>
+        <input type="button" class = 'btn' value="提交">
+        <button type="reset">
+        重置
+        </button>
+    </form>
+    </div>
+    <script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+         const submit = document.getElementsByClassName('btn')[0]
+        submit.onclick = function()
+        { 
+         const username = document.getElementById('nicheng').value
+         const password = document.getElementById('mima').value
+         const password2 = document.getElementById('queren').value
+        if(username == null || username == ""){
+			alert("必须填写昵称");	//如果值为空，提示用户填写
+			return;
+        }
+        if(password == null || password == ""){
+			alert("必须密码");	//如果值为空，提示用户填写
+			return;
+        }
+        if(password != password2 ){
+			alert("密码不相同");	//如果值为空，提示用户填写
+			return;
+        }else{//如果值不为空，提交表单
+			const data={
+                "username":username,
+                "password":password,
+                "password2":password2
+            }
+
+            $.ajax({
+                type:"post",
+                url:"http://127.0.0.1:8000/server",
+                data:data,
+                success:function(data){
+                    alert(data);
+                }
+            })
+        //     const xhr = new XMLHttpRequest()
+        //    xhr.open('POST','http://localhost:8080/user/register')
+        //    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+        //    xhr.send(JSON.stringify(data))
+        //    xhr.onreadystatechange = function(){
+        //        if(xhr.readyState === 4){
+        //            if(xhr.status >= 200 && xhr.status < 300){
+        //             // console.log(xhr.status)
+        //             // console.log(xhr.statusText)
+        //             // console.log(xhr.getAllResponseHeaders())
+        //             // cons1.log(xhr.response)
+        //             console.log(xhr.response);
+        //            }
+        //        }
+        //    }
+        
+        
+		}
+           
+        }  
+
+    </script>
+
+</body>
+</html>
