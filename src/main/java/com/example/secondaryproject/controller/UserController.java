@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {

@@ -3,14 +3,11 @@ package com.example.secondaryproject.controller;
 import com.example.secondaryproject.pojo.picture;
 import com.example.secondaryproject.service.Impl.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.example.secondaryproject.vo.result;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/GoodsPicture")
 public class PictureController {

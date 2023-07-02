@@ -9,7 +9,7 @@ import com.example.secondaryproject.vo.result;
 import com.example.secondaryproject.vo.cartVo;
 
 import java.util.List;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/Cart")
 public class CartController {
@@ -20,7 +20,11 @@ public class CartController {
 
     @GetMapping("/user/{userId}")
     public result cart(@PathVariable int userId){
+
         List<cartVo> cartVoList = cartService.selectCartByUserId(userId);
+
+        System.out.println(userId);
+
         result.success("001",cartVoList);
         return result;
     }
