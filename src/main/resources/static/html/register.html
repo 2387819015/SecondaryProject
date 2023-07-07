@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/register.css">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
 </head>
-<body>
+<body onLoad="setit();">
     <div class="header">
         <h1>
             <a href="#">
@@ -16,7 +15,7 @@
         </h1>
         <div class="zhuc">
             <div>已有账号?</div>
-            <a href="2.html">请登录></a>
+            <a href="login.html">请登录></a>
         </div>
     </div>
 
@@ -29,6 +28,10 @@
         <input type="text" placeholder="请输入昵称" id="nicheng">
         <br>
         <br>
+        账号:
+         <input type="text" placeholder="请输入账号" id="zhanghu">
+         <br>
+         <br>
         密码:
         <input type="text" placeholder="请输入密码" id="mima">
         <br>
@@ -51,40 +54,48 @@
         </button>
     </form>
     </div>
-    <script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function setit() {
+            document.body.style.zoom=125/100;
+        }
          const submit = document.getElementsByClassName('btn')[0]
         submit.onclick = function()
-        { 
-         const username = document.getElementById('nicheng').value
-         const password = document.getElementById('mima').value
-         const password2 = document.getElementById('queren').value
-        if(username == null || username == ""){
-			alert("必须填写昵称");	//如果值为空，提示用户填写
-			return;
-        }
-        if(password == null || password == ""){
-			alert("必须密码");	//如果值为空，提示用户填写
-			return;
-        }
-        if(password != password2 ){
-			alert("密码不相同");	//如果值为空，提示用户填写
-			return;
-        }else{//如果值不为空，提交表单
-			const data={
-                "username":username,
-                "password":password,
-                "password2":password2
+        {
+            const nickName = document.getElementById('nicheng').value
+            const password = document.getElementById('mima').value
+            const password2 = document.getElementById('queren').value
+            const accountNumber = document.getElementById('zhanghu').value
+            if(nickName == null || nickName ===""){
+                alert("必须填写昵称"); //如果值为空，提示用户填写
+                return;
             }
-
-            $.ajax({
-                type:"post",
-                url:"http://127.0.0.1:8000/server",
-                data:data,
-                success:function(data){
-                    alert(data);
-                }
+            if(accountNumber == null || accountNumber === ""){
+                alert("必须填写账号"); //如果值为空，提示用户填写
+                return;
+            }
+            if(password == null || password === ""){
+                alert("必须填写密码"); //如果值为空，提示用户填写
+                return;
+            }
+            if(password !== password2 ){
+                alert("密码不相同"); //如果值为空，提示用户填写
+                return;
+            }else{//如果值不为空，提交表单
+                const data={
+                    "accountNumber":accountNumber,
+                    "password":password,
+                    "nickName":nickName
+            }
+            axios({
+                method:`post`,
+                url:`http://localhost:8080/user/register`,
+                data:data
+            }).then(result=>{
+                console.log(result.data.msg)
+                alert(`${result.data.msg}`)
             })
+
         //     const xhr = new XMLHttpRequest()
         //    xhr.open('POST','http://localhost:8080/user/register')
         //    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
@@ -103,6 +114,7 @@
         
         
 		}
+
            
         }  
 

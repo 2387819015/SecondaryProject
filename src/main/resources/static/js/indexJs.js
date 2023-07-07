@@ -1,14 +1,17 @@
 
-
 function searchhot(){
  const searchhot=document.querySelector(`.hotrecommend`)
  const search=document.querySelector(`.search input`)
+
  search.addEventListener(`focus`,function (){
-  searchhot.style.display=`block`
+  setTimeout(()=>{
+   searchhot.style.display=`block`
+  },400)
+
  })
  search.addEventListener(`blur`,function (){
-  searchhot.style.display=`none`
-  }
+      searchhot.style.display=`none`
+     }
  )
 }
 searchhot()
@@ -17,12 +20,20 @@ function scorllImage() {
  let img;
  img = [{
   url: `www.baidu.com`,
-  img: `./image/1.png`
+  img: `./image/bannerimg/banner1.jpg`
  },
   {
-  url: `www.bilibili.com`,
-  img: `./image/2.png`
- }];
+   url: `www.bilibili.com`,
+   img: `./image/bannerimg/banner1.jpg`
+  },
+  {
+   url: `www.bilibili.com`,
+   img: `./image/bannerimg/banner3.jpg`
+  },
+  {
+   url: `www.bilibili.com`,
+   img: `./image/bannerimg/banner4.jpg`
+  }];
  let but1 = document.querySelector(`.goodsscroll button`)
  let but2 = document.querySelector(`.goodsscroll button:last-child`)
  let scro_num = 0
@@ -72,14 +83,14 @@ function backtosomewhere() {
  let Offset=document.querySelectorAll(`.midpagetitle`)
  const squareoffset=Offset[0]
  const goodsrecooffset=Offset[1]
-  top.addEventListener(`click`,e=>{
-   scrollTo(0,0)
-   e.preventDefault()
-  })
+ top.addEventListener(`click`,e=>{
+  scrollTo(0,0)
+  e.preventDefault()
+ })
  console.log(squareoffset.offsetTop)
  square.addEventListener(`click`,e=>{
   e.preventDefault()
- scrollTo(0,squareoffset.offsetTop-200)
+  scrollTo(0,squareoffset.offsetTop-200)
  })
  goodsreco.addEventListener(`click`,e=>{
   scrollTo(0,goodsrecooffset.offsetTop-200)
@@ -88,5 +99,14 @@ function backtosomewhere() {
 }
 backtosomewhere()
 
+function gotoSearch(){
+ let but=document.querySelector(`.search button`)
+ let search=document.querySelector(`.search input`).value
+ localStorage.setItem(`userinput`,`${search}`)
+ but.addEventListener(`click`,()=>{
+  window.location.href=`http://localhost:8080/html/search_good.html`
+ })
+}
+gotoSearch()
 
 

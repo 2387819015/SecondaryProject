@@ -22,7 +22,6 @@ a{
 }
 body{
     /* background-color: #abdde8; */
-  
     overflow: hidden;
    
 
@@ -44,7 +43,9 @@ body{
 .header .zhuc a{
     color: red;
 }
-
+*{
+    margin: 0 auto;
+}
 .neirong{
     float: left;
     margin: 70px auto;

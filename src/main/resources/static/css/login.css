@@ -105,10 +105,14 @@ body{
     font-size: 10px;
 }
 .banquan{
+    float: left;
    line-height: 40px;
     text-align: center;
     margin-top: 10px;
     font-size: 10px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
 }
 
 
@@ -138,7 +142,7 @@ body{
     position: absolute;
     border-radius: 8px;
     text-align: center;
-    margin:right;
+
   }
   
   /* 切换按钮 */
@@ -153,7 +157,7 @@ body{
     font-size: 24px;
     font-weight: 600;
     position: absolute;
-    bottom: 130px;
+    bottom: 200px;
     left: 73%;
     transform: translate(-50%);
     border-radius: 8px;

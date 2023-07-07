@@ -12,7 +12,7 @@ public class goods {
     private Integer id;
     private String goodName;
     private String description;//商品描述
-    private String face;//显示在商城里的图片
+    private String facePic;//显示在商城里的图片
     private Double price;
     private Integer num;
     private String title;//商品在商城中的标题

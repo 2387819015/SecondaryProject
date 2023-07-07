@@ -3,88 +3,127 @@
     text-align: center;
     background-color: white;
 }
+.interval{
+    line-height: 30px;
+    padding-left:50px ;
+    width: 100%;
+    height: 30px;
+    background-color: grey;
+}
 .wrapper{
     width: 70%;
     margin: 0 auto;
 }
 .header{
-    margin-top: 70px;
     width: 70%;
-    background-color: pink;
-    height: 200px;
-}
-.goodscount{
-    text-align: left;
-    height: 250px;
-    background-color: whitesmoke;
-}
-.goodscount p{
-    background-color: white;
-    border: grey 1px solid;
-    padding-left: 30px;
-    line-height: 100px;
-    display: block;
-    height: 100px;
+    height: 150px;
 }
 
+
 .goods_detail{
-    margin-top: 10px;
     display: flex;
     height: 100px;
     align-items: center;
+    justify-content: space-between;
 }
-.goodsdeleft{
-    justify-content: space-around;
+.goods_detail div{
+    width: 100px;
+    margin-left: 10px;
     float: left;
-    width: 20%;
+    color: #434343;
 }
-.goodderight{
-    justify-content: space-around;
-    float: right;
-    width: 40%;
+
+*{
+    margin: 0;
+    padding: 0;
 }
-.goodderight div{
-    width: 40px;
-    text-align: center;
-}
-.goods_display{
-    background-color: red;
-    height: 300px;
-}
-.commodity_display{
-    box-sizing: border-box;
+.commodity_box{
     display: flex;
-    padding-left: 20px;
+    width: 100%;
     align-items: center;
     height: 200px;
-    background-color: pink;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
-.commodity_img{
+.commodity_box div{
+    text-align: left;
+    margin-left: 10px;
+    height: 50%;
+    width: 100px;
+    color: #666666;
+
+}
+.goodprice{
+    height: 100px;
+}
+.goodsnums{
+    width: 100px;
+    height: 30px;
+}
+.goodpic{
     width: 100px;
     height: 100px;
 }
-.commodity_img img{
+.goodpic img{
     width: 100%;
     height: 100%;
 }
-.commodity_description{
-    width: 100px;
-    height: 50px;
-    margin-left:40px;
-    text-align: left;
+.payment{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    background: white;
+    box-shadow: 0  -5px  5px 5px whitesmoke;
+    display: flex;
+    justify-content: right;
 }
-.price{
-    margin-left: 45%;
-    width: 100px;
+.payment div{
+    margin-left: 50px;
 }
-.count{
-    display: inline-block;
-    margin-left: 180px;
-    width: 50px;
+.paying{
+    margin-right: 400px;
 }
-.sum{
-    margin-left: 100px;
-    width: 100px;
-    height: 50px;
-    line-height: 50px;
+.payment button{
+    height: 100%;
+    width: 150px;
+    background-color: #e1251b;
+    border: 0;
+    font-size: 30px;
+    cursor: pointer;
+    color: #f4f4f4;
+}
+.totalpayment{
+    width: 200px;
+    color: #666666;
+    line-height: 20px;
+    font-size: 20px;
+}
+.confirm{
+    /*display: none;*/
+    display: none;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 400px;
+    box-shadow: 0 0 10px 5px #434343;
+    z-index: 9;
+}
+.confirm button{
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    font-size: 30px;
+    border: 1px black solid;
+    box-shadow:0 0 1px 1px #666666 ;
+    cursor: pointer;
+}
+.confirm button:hover{
+    color: #e1251b;
+    background: #f4f4f4;
 }

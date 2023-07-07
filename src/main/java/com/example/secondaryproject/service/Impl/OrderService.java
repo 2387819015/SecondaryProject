@@ -71,7 +71,7 @@ public class OrderService extends ServiceImpl<OrderMapper, order> implements IOr
         for(order order:orderList){
             orderVo orderVo = new orderVo();
             orderVo.setGoodsName(order.getGoodsName());
-            orderVo.setGoodsPic(goodsMapper.selectOneByName(order.getGoodsName()).getFace());
+            orderVo.setGoodsPic(goodsMapper.selectOneByName(order.getGoodsName()).getFacePic());
             orderVoList.add(orderVo);
         }
         return orderVoList;

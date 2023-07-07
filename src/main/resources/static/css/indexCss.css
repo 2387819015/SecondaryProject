@@ -90,7 +90,7 @@ clearfix::after{
     width: 700px;
 }
 .search input::placeholder{
-    color: pink;
+    color: #666666;
     font-size: 20px;
 }
 
@@ -123,7 +123,10 @@ clearfix::after{
     height: 65px;
 }
 .news{
-    margin-top: 100px;
+    margin-top: 50px;
+}
+.news li a::before{
+    content:'❥:';
 }
 .news li{
     border-bottom: 2px solid whitesmoke;
@@ -190,7 +193,7 @@ clearfix::after{
     position: relative;
     float: left;
     margin-right: 20px;
-    width: 600px;
+    width: 700px;
     height: 680px;
     background-color: white;
 
@@ -213,7 +216,7 @@ clearfix::after{
     height: 50px;
     opacity: 0.35;
     background-color: black;
-    border-radius: 0% 50%  50% 0;
+    border-radius: 0 50%  50% 0;
 }
 .goodsscroll button:first-child{
     left: 0;
@@ -226,7 +229,7 @@ clearfix::after{
 }
 .advertisment{
     float: left;
-    width: 300px;
+    width: 250px;
     height: 680px;
     margin-right: 20px;
     background-color: white;
@@ -234,7 +237,7 @@ clearfix::after{
 .advertisment ul li{
     height: 220px;
     margin-bottom: 10px;
-    background-color: pink;
+    background-color: white;
 }
 .advertisment li:nth-child(3){
     margin-bottom: 0;
@@ -246,7 +249,7 @@ clearfix::after{
 .register{
     float: left;
     text-align: center;
-    width: 350px;
+    width: 300px;
     height: 680px;
     background-color: white;
 }
@@ -279,11 +282,15 @@ clearfix::after{
     text-align: center;
 }
 .square{
-    height: 1200px;
+    height: 1000px;
     overflow: hidden;
-
+}
+.square img{
+    width: 100%;
+    height: 100%;
 }
 .item{
+    cursor: pointer;
     width: 380px;
     float: left;
     margin-right: 10px;
@@ -294,6 +301,22 @@ clearfix::after{
     height: 290px;
     background-color: white;
 
+}
+.square .minitem img{
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.square .introduce{
+    margin-top: 10px;
+    font-size: 25px;
+    color: #666666;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
 }
 .largeitem{
     height: 590px;
@@ -340,6 +363,7 @@ clearfix::after{
     width: 100%;
     height: 150px;
     z-index: 0;
+    box-shadow: 0 0 5px 5px grey;
 }
 .search button:hover{
     background-color: darkred;
@@ -350,6 +374,7 @@ clearfix::after{
     height: 800px;
     position: relative;
     overflow: hidden;
+    margin-bottom: 200px;
 }
 
 .goods_display li{
@@ -359,13 +384,19 @@ clearfix::after{
     margin-left: 10px;
     margin-bottom: 10px;
     background-color: white;
-    overflow: hidden;
 }
 .goods_display li a{
+    padding-left: 40px;
+    padding-right: 40px;
     display: inline-block;
-    height: 330px;
-    border-bottom: 1px solid gray;
-
+    height: 80%;
+}
+.goods_display li:hover{
+    box-shadow: 0 0 5px 5px grey;
+}
+.goods_display img{
+    width: 100%;
+    height: 80%;
 }
 .goods_display li:nth-child(5n+1){
     margin-left: 0;
@@ -373,15 +404,17 @@ clearfix::after{
 .goods_display li:nth-child(5-n){
 }
 .goods_details{
-    background-color: pink;
-    height: 60px;
+    background-color: white;
+    color: #666666;
+    line-height: 1em;
+    font-size: 20px;
+    height: 20%;
+    text-align: center;
 }
-.changegoods{
 
-}
 .sitebottom{
     margin-top: 100px;
-    height: 200px;
+    height: 400px;
     background-color: #434343;
     position: relative;
     box-shadow: 0 3px 5px 2px grey;
@@ -414,24 +447,11 @@ clearfix::after{
     height: 100px;
     z-index: 1;
 }
-.changegoods button{
-    position: absolute;
-    right: 50%;
-    transform: translate(50%,0);
-    border: #434343 2px solid;
-    background-color: white;
-    border-radius: 5px 5px 5px 5px;
-    font-size: 30px;
-    transition: background-color 0.3s;
-    z-index: 2;
-}
-.changegoods button:hover{
-    background-color: #434343;
-}
 .scode{
-    float: right;
-    width: 250px;
-    margin-right: 50px;
+    position: absolute;
+    right: 10px;
+    width: 100px;
+    top: 50px;
     height: 200px;
 }
 .scode_p{
@@ -439,11 +459,11 @@ clearfix::after{
     font-size: 20px;
     padding: 5px;
     text-align: center;
-    border: whitesmoke 1px solid;
 
 }
 .scode img{
-    width: 30%;
+    border: #f4f4f4 1px solid;
+    width: 100%;
     height: 40%;
     display: none;
     margin: 5px auto;
@@ -452,21 +472,25 @@ clearfix::after{
 }
 .scode:hover img{
     display: block;
-    box-shadow: gray 0px 0px 10px 10px;
+    box-shadow: gray 0 0 10px 10px;
 
 }
 
 .hotrecommend{
-    height: 400px;
+    height: 300px;
     display: none;
     position: absolute;
     width:740px;
-    border:pink 3px solid;
+    border:grey 1px solid;
     top:60px;
-    background-color: pink;
+    background-color: white;
     transition: all 0.5s;
 }
 .hotrecommend li{
-    height: 50px;
-    color: pink;
+    line-height: 40px;
+    height: 40px;
+    color: #666666;
+}
+.hotrecommend li:hover{
+    background-color: lightgoldenrodyellow;
 }

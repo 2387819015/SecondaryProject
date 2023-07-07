@@ -36,7 +36,7 @@ public class CartService extends ServiceImpl<CartMapper, cart> implements ICartS
             goods goods = goodsMapper.selectById(cart.getGoodsId());
             cartVo.setGoodsName(goods.getGoodName());
             cartVo.setTotalPrice(cartVo.getGoodsNum()*goods.getPrice());
-            cartVo.setGoodsPic(goods.getFace());
+            cartVo.setGoodsPic(goods.getFacePic());
             cartVoList.add(cartVo);
         }
         return cartVoList;
@@ -49,7 +49,7 @@ public class CartService extends ServiceImpl<CartMapper, cart> implements ICartS
         goods goods = goodsMapper.selectById(cart.getGoodsId());
         cartVo.setGoodsName(goods.getGoodName());
         cartVo.setTotalPrice(cartVo.getGoodsNum()*goods.getPrice());
-        cartVo.setGoodsPic(goods.getFace());
+        cartVo.setGoodsPic(goods.getFacePic());
         return  cartVo;
     }
 
